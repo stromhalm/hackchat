@@ -1,8 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import todosList from '../imports/components/todosList/todosList';
+import messagesList from '../imports/components/messagesList/messagesList';
  
-angular.module('simple-todos', [
+angular.module('hackchat', [
   angularMeteor,
-  todosList.name
+  messagesList.name
 ]);

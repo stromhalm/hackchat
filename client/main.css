@@ -44,9 +44,9 @@ h1 {
 }
  
 form {
-    margin-top: 10px;
-    margin-bottom: -10px;
-    position: relative;
+    bottom: 0;
+    position: absolute;
+    padding: 10px;
 }
  
 .new-task input {
