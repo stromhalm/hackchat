@@ -1,0 +1,20 @@
+language: node_js
+node_js: 4
+sudo: required
+deploy:
+  provider: azure_web_apps
+  skip_cleanup: true
+script:
+  - curl https://install.meteor.com/ | sh
+  - npm install -g demeteorizer
+  - demeteorizer
+  - cd .demeteorized/bundle/programs/server
+  - npm install
+  - cd ../..
+  - curl https://raw.githubusercontent.com/christopheranderson/azure-demeteorizer/master/resources/web.config > web.config
+  - cd ../..
+  - shopt -s extglob
+  - rm -rf !(.demeteorized) # Delete unused files
+  - mv .demeteorized/bundle/* .
+ # - cd ..
+ # - "find bundle -type f -exec curl -u $AZURE_WA_USERNAME:$AZURE_WA_PASSWORD --ftp-create-dirs -T {} $AZURE_WA_URL/site/{} \\;"
