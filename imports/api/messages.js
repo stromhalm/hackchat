@@ -14,10 +14,12 @@ if (Meteor.isServer) {
 Meteor.methods({
   'messages.insert' (text) {
     check(text, String);
- 
-    Messages.insert({
-      text,
-      createdAt: new Date()
-    });
+    
+    if (text != "") {
+      Messages.insert({
+        text,
+        createdAt: new Date()
+      });
+    }
   }
 });

@@ -1,5 +1,8 @@
 <ul>
   <li ng-repeat="message in $ctrl.messages">
+    <span ng-if="message.sender" class="sender">
+      {{message.sender}}
+    </span>
     <span class="text">
       {{message.text}}
     </span>
