@@ -7,6 +7,8 @@ import template from './todosList.html';
 class TodosListCtrl {
   constructor($scope) {
     $scope.viewModel(this);
+
+    this.subscribe('tasks');
  
     this.hideCompleted = false;
  
