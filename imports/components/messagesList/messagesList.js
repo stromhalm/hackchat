@@ -1,11 +1,11 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Messages } from '../../api/messages.js';
-
 import template from './messagesList.html';
 
 class MessagesListCtrl {
   constructor($scope) {
+
     $scope.viewModel(this);
 
     this.subscribe('messages');
@@ -31,6 +31,9 @@ class MessagesListCtrl {
 
     // Insert a task into the collection
     Meteor.call('messages.insert', newMessage);
+
+    var bottomDiv = document.getElementById("bottom-element");
+    bottomDiv.scrollTop = bottomDiv.scrollHeight;
 
     // Clear form
     this.newMessage = '';
