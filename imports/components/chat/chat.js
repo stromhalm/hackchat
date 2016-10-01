@@ -30,7 +30,7 @@ class ChatCtrl {
 
             if (decryptTry) {
                 decryptedMessages.push({
-                text: CryptoJS.AES.decrypt(JSON.parse(fields.text), authService.password).toString(CryptoJS.enc.Utf8),
+                text: decryptTry,
                 sender: fields.sender
               });
             }
