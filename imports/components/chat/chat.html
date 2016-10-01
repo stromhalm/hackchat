@@ -1,0 +1,32 @@
+<div class="backdrop" ng-if="!chatCtrl.username || !chatCtrl.password">
+      <div class="login-card">
+          <form class="new-user" ng-submit="chatCtrl.setUsernameAndPassword(username, password)">
+              <input ng-model="username" type="text" name="username" placeholder="What's your name?'"/>
+              <input ng-model="password" type="text" name="password" placeholder="Select password"/>
+              <input type="submit" value="Start"/>
+          </form>
+      </div>
+  </div>
+
+<div class="container">
+  <header>
+    <h1>Hackchat</h1>
+    <input type="button" ng-click="chatCtrl.clearList()" value="Clear Chat" />
+  </header>
+
+  <ul>
+    <li ng-repeat="message in chatCtrl.decryptedMessages">
+      <span ng-if="message.sender" class="sender">
+        {{message.sender}}
+      </span>
+      <span class="text">
+        {{message.text}}
+      </span>
+    </li>
+    <li id="bottom-element"></li>
+  </ul>
+
+  <form class="new-task" ng-submit="chatCtrl.addMessage(chatCtrl.newMessage)">
+    <input ng-model="chatCtrl.newMessage" type="text" name="text" placeholder="Type a message"/>
+  </form>
+</div>

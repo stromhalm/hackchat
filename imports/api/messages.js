@@ -6,20 +6,25 @@ export const Messages = new Mongo.Collection('messages');
 
 if (Meteor.isServer) {
   // This code only runs on the server
-  Meteor.publish('messages', function tasksPublication() {
+  Meteor.publish('messages', function messagesPublication() {
     return Messages.find();
   });
 }
  
 Meteor.methods({
-  'messages.insert' (text) {
-    check(text, String);
+  'messages.insert' (message) {
+    //check(message.text, String);
+    check(message.sender, String);
     
-    if (text != "") {
+    if (message.text != "") {
       Messages.insert({
-        text,
+        text: message.text,
+        sender: message.sender,
         createdAt: new Date()
       });
     }
+  },
+  'messages.clear' () {
+    Messages.remove({});
   }
 });
