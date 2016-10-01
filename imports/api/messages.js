@@ -13,7 +13,7 @@ if (Meteor.isServer) {
  
 Meteor.methods({
   'messages.insert' (message) {
-    //check(message.text, String);
+    check(message.text, String);
     check(message.sender, String);
     
     if (message.text != "") {
@@ -23,8 +23,5 @@ Meteor.methods({
         createdAt: new Date()
       });
     }
-  },
-  'messages.clear' () {
-    Messages.remove({});
   }
 });

@@ -13,7 +13,6 @@ class ChatCtrl {
     this.subscribe('messages');
     var decryptedMessages = []
     this.decryptedMessages = decryptedMessages;
-   
 
     this.helpers({
       messages() {
@@ -69,10 +68,6 @@ class ChatCtrl {
 
     // Clear form
     this.newMessage = '';
-  }
-
-  clearList() {
-    Meteor.call('messages.clear');
   }
 }
 
