@@ -1,7 +1,7 @@
 <div class="backdrop" ng-if="!chatCtrl.username || !chatCtrl.password">
       <div class="login-card">
           <form class="new-user" ng-submit="chatCtrl.setUsernameAndPassword(username, password)">
-              <input ng-model="username" type="text" name="username" placeholder="What's your name?'"/>
+              <input ng-model="username" type="text" name="username" placeholder="What's your name?"/>
               <input ng-model="password" type="text" name="password" placeholder="Select secure chat channel"/>
               <input type="submit" value="Start"/>
           </form>
